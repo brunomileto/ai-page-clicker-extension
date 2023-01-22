@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "SVG Path Auto Clicker",
+  "description": "This extension clicks on buttons with a specific SVG path automatically",
+  "version": "0.1",
+  "permissions": [
+      "tabs",
+      "activeTab",
+      "<all_urls",
+      "webNavigation"
+  ],
+  "background": {
+      "scripts": ["background.js"]
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+      "default_popup": "popup.html"
+  }
+
+}
